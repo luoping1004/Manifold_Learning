@@ -23,7 +23,7 @@ A = adj;
 %disease, add prior information for that disease. Add multiple rows of prior
 %information when predicting associated genes for multiple diseases.
 
-ind = 169; 
+ind = 169; %bladder cancer
 
 A(ind,:) = A(ind,:)+prior(ind,:);
 
