@@ -4,10 +4,10 @@ clear;clc;
 
 alpha = 0.1;
 beta = alpha;
-k = 100;
+k = 30;
 
 load('Adj.mat')
-load('ModuleSim.mat')
+load('Sd.mat')
 load('Sg.mat')
 load('Prior_wavg.mat')
 
@@ -23,7 +23,7 @@ A = adj;
 %disease, add prior information for that disease. Add multiple rows of prior
 %information when predicting associated genes for multiple diseases.
 
-ind = 804; 
+ind = 169; 
 
 A(ind,:) = A(ind,:)+prior(ind,:);
 
@@ -37,8 +37,8 @@ L = [Ar+alpha*Ld -A; -A' Ac+beta*Lg];
 
 [V,D] = eig(L);
 
-R = V(1:1611,2:k);
-Q = V(1612:4977,2:k);
+R = V(1:1537,2:k);
+Q = V(1537:4857,2:k);
 
 %Calculate the geodesic distance between all the genes and the target
 %disease (Here the algorthm only calculates the distance for lung cancer)
